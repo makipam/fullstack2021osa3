@@ -1,1 +1,1 @@
-osan 3 tehtävien readme tiedosto.
+https://puhelinluettelo-fso21-app.herokuapp.com/api/persons/

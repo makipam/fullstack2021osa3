@@ -14,6 +14,7 @@ morgan.token("note", (req, res) => {
 app.use(express.json())
 app.use(morgan(' :method :url :status :res[content-length] - :response-time ms :note'))
 app.use(cors())
+app.use(express.static('build'))
 
 
 
@@ -67,9 +68,9 @@ app.get('/', (req, res) => {
     }
   
     const person = {
-      name: body.name,
-      number: body.number,
       id: generateId(),
+      name: body.name,
+      number: body.number
     }
   
     persons = persons.concat(person)
