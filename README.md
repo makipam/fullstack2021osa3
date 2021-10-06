@@ -1,1 +1,1 @@
-https://puhelinluettelo-fso21-app.herokuapp.com/api/persons/
+https://puhelinluettelo-fso21-app.herokuapp.com
