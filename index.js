@@ -29,15 +29,16 @@ const requestLogger = (request, response, next) => {
 app.use(requestLogger)
 
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>')
-  })
-
 app.get('/info', (req, res) => {
-  const amount = persons.length
-  const date = new Date()
-  res.send
-  (`<p>Phonebook has info for ${persons.length} people </p> <p> ${date} </p>`)
+  Person.countDocuments({}, (error, count) => {
+    if (error) {
+      return res.end.status(500).end()
+    } else {
+      const date = new Date()
+      res.send
+      (`<p>Phonebook has info for ${count} people </p> <p> ${date} </p>`)
+    }
+  })
 })
 
 app.post('/api/persons', (request, response) => {
@@ -105,6 +106,7 @@ const unknownEndpoint = (request, response) => {
 }
 
 app.use(unknownEndpoint)
+
 
 const errorHandler = (error, request, response, next) => {
   console.error(error.message)
